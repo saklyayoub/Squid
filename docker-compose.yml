@@ -1,8 +1,11 @@
 squid:
-  image: sameersbn/squid:3.5.27-2
+  build: ./
+  container_name: squid
   ports:
     - "3128:3128"
   volumes:
     - ./cache:/var/spool/squid
     - ./squid.conf:/etc/squid/squid.conf
+    - ./passwords:/etc/squid/passwords
   restart: always
+
